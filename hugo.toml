@@ -1,4 +1,4 @@
-baseURL = "www.dairongpeng.com"
+baseURL = "https://dairongpeng.github.io/blog/"
 # title = "一天读书，一天行路"
 author = "Dairongpeng"
 copyright = "Copyright © 2022–2023, Dairongpeng; all rights reserved."

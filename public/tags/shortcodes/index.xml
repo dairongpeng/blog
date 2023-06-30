@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>shortcodes on 一天读书，一天行路</title>
-    <link>www.dairongpeng.com/tags/shortcodes/</link>
+    <link>https://dairongpeng.github.io/blog/tags/shortcodes/</link>
     <description>Recent content in shortcodes on 一天读书，一天行路</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2022–2023, Dairongpeng; all rights reserved.</copyright>
-    <lastBuildDate>Sun, 10 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="www.dairongpeng.com/tags/shortcodes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dairongpeng.github.io/blog/tags/shortcodes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rich Content</title>
-      <link>www.dairongpeng.com/post/rich-content/</link>
+      <link>https://dairongpeng.github.io/blog/post/rich-content/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>www.dairongpeng.com/post/rich-content/</guid>
+      <guid>https://dairongpeng.github.io/blog/post/rich-content/</guid>
       <description>&lt;p&gt;Hugo ships with several &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes&#34;&gt;Built-in Shortcodes&lt;/a&gt; for rich content, along with a &lt;a href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34;&gt;Privacy Config&lt;/a&gt; and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p&gt;
 &lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;</description>
     </item>
