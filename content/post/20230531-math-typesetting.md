@@ -1,7 +1,7 @@
 ---
-author: lee.so
+author: dairongpeng
 title: Math Typesetting
-date: 2019-03-08
+date: "2023-05-31"
 description: A brief guide to setup KaTeX
 math: true
 ---

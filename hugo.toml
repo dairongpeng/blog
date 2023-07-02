@@ -1,8 +1,7 @@
-baseURL = "https://dairongpeng.github.io/blog/"
-# title = "一天读书，一天行路"
-author = "Dairongpeng"
-copyright = "Copyright © 2022–2023, Dairongpeng; all rights reserved."
-paginate = 3
+baseURL = "https://dairongpeng.github.io/blog"
+author = "dairongpeng"
+copyright = "Copyright © 2022–2023, dairongpeng; all rights reserved."
+paginate = 1000
 languageCode = "en"
 DefaultContentLanguage = "en"
 enableInlineShortcodes = true
@@ -12,18 +11,18 @@ ignoreErrors = ["error-remote-getjson"]
 
 # ------------------------------
 theme = "paper"
-title = "一天读书，一天行路"
+title = "Dai"
 
 [params]
   color = 'linen'
 
   twitter = 'rongpx95'
   github = 'dairongpeng'
-  instagram = 'xxx'
+  instagram = 'rongpx95'
 
-  avatar = 'abcdairongpeng@gmail.com'
-  name = 'Dai'
-  bio = 'Dx'
+#  avatar = 'abcdairongpeng@gmail.com'
+#  name = 'Dai'
+#  bio = '暂时没有座右铭'
 # ------------------------------
 
 # needed to  render raw HTML (e.g. <sub>, <sup>, <kbd>, <mark>)

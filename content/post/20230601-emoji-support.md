@@ -1,7 +1,7 @@
 +++
-author = "lee.so"
+author = "dairongpeng"
 title = "Emoji Support"
-date = "2019-03-05"
+date = "2023-06-01"
 description = "Guide to emoji usage in Hugo"
 tags = [
     "emoji",

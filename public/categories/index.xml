@@ -1,1 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on 一天读书，一天行路</title><link>https://dairongpeng.github.io/blog/categories/</link><description>Recent content in Categories on 一天读书，一天行路</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2022–2023, Dairongpeng; all rights reserved.</copyright><lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dairongpeng.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Dai</title>
+    <link>https://dairongpeng.github.io/blog/categories/</link>
+    <description>Recent content in Categories on Dai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2022–2023, dairongpeng; all rights reserved.</copyright>
+    <lastBuildDate>Mon, 05 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dairongpeng.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
