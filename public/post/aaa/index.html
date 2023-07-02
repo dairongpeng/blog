@@ -47,7 +47,7 @@
   />
 
   
-  <title>Math Typesetting - Dai</title>
+  <title>ABC - Dai</title>
 
   
   <meta name="theme-color" />
@@ -55,8 +55,8 @@
   
   
   
-  <meta name="description" content="Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries." />
-  <meta name="author" content="dairongpeng" />
+  <meta name="description" content="测试日期20230702" />
+  <meta name="author" content="Dai" />
   
 
   
@@ -95,29 +95,6 @@
 
   
   
-  <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css"
-  integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI"
-  crossorigin="anonymous"
-/>
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js"
-  integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t"
-  crossorigin="anonymous"
-></script>
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js"
-  integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
-  crossorigin="anonymous"
-  onload="renderMathInElement(document.body);"
-></script>
-
-  
-  
-  
 
   
   <link rel="icon" href="https://dairongpeng.github.io/blog/favicon.ico" />
@@ -136,24 +113,23 @@
   
   
   
-  <meta property="og:title" content="Math Typesetting" />
-<meta property="og:description" content="A brief guide to setup KaTeX" />
+  <meta property="og:title" content="ABC" />
+<meta property="og:description" content="测试日期20230702" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dairongpeng.github.io/blog/post/20230531-math-typesetting/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2023-05-31T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-05-31T00:00:00+00:00" />
-
+<meta property="og:url" content="https://dairongpeng.github.io/blog/post/aaa/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-07-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-02T00:00:00+00:00" />
 
   
-  <meta itemprop="name" content="Math Typesetting">
-<meta itemprop="description" content="A brief guide to setup KaTeX"><meta itemprop="datePublished" content="2023-05-31T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-05-31T00:00:00+00:00" />
-<meta itemprop="wordCount" content="120">
+  <meta itemprop="name" content="ABC">
+<meta itemprop="description" content="测试日期20230702"><meta itemprop="datePublished" content="2023-07-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-07-02T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Math Typesetting"/>
-<meta name="twitter:description" content="A brief guide to setup KaTeX"/>
+<meta name="twitter:title" content="ABC"/>
+<meta name="twitter:description" content="测试日期20230702"/>
 
   
   
@@ -294,53 +270,22 @@
 
 <article>
   <header class="mb-20">
-    <h1 class="!my-0 pb-2.5">Math Typesetting</h1>
+    <h1 class="!my-0 pb-2.5">ABC</h1>
 
     
     <div class="text-sm opacity-60">
       
-      <time>May 31, 2023</time>
+      <time>Jul 2, 2023</time>
       
       
       
-      
-      <span class="mx-1">&middot;</span>
-      <span>dairongpeng</span>
       
     </div>
     
   </header>
 
-  <section><p>Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.</p>
-<p>In this example we will be using <a href="https://katex.org/">KaTeX</a></p>
-<ul>
-<li>Create a partial under <code>/layouts/partials/math.html</code></li>
-<li>Within this partial reference the <a href="https://katex.org/docs/autorender.html">Auto-render Extension</a> or host these scripts locally.</li>
-<li>Include the partial in your templates like so:</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">{{</span> <span style="color:#66d9ef">if</span> or .Params.math .Site.Params.math <span style="color:#f92672">}}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{{</span> partial <span style="color:#e6db74">&#34;math.html&#34;</span> . <span style="color:#f92672">}}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{{</span> end <span style="color:#f92672">}}</span>
-</span></span></code></pre></div><ul>
-<li>To enable KaTex globally set the parameter <code>math</code> to <code>true</code> in a project&rsquo;s configuration</li>
-<li>To enable KaTex on a per page basis include the parameter <code>math: true</code> in content files</li>
-</ul>
-<p><strong>Note:</strong> Use the online reference of <a href="https://katex.org/docs/supported.html">Supported TeX Functions</a></p>
-
-
-
-<h3 id="examples">Examples</h3>
-
-
-<p>
-Inline math: \(\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…\)
-</p>
-
-
-<p>Block math:</p>
-<p>$$
-\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
-$$</p></section>
+  <section><p>测试日期20230702</p>
+</section>
 
   
   
@@ -350,12 +295,12 @@ $$</p></section>
   
   <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
     
-    <a
-      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://dairongpeng.github.io/blog/post/20230601-emoji-support/"
-      ><span class="mr-1.5">←</span><span>Emoji Support</span></a
-    >
     
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://dairongpeng.github.io/blog/post/golang%E6%A0%87%E5%87%86%E5%BA%93time/"
+      ><span>Golang标准库Time</span><span class="ml-1.5">→</span></a
+    >
     
   </nav>
   

@@ -2,65 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://dairongpeng.github.io/blog/post/20230625-placeholder-text/</loc>
-    <lastmod>2023-06-25T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://dairongpeng.github.io/blog/</loc>
-    <lastmod>2023-06-30T00:00:00+00:00</lastmod>
+    <lastmod>2023-07-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dairongpeng.github.io/blog/post/aaa/</loc>
+    <lastmod>2023-07-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dairongpeng.github.io/blog/post/</loc>
-    <lastmod>2023-06-30T00:00:00+00:00</lastmod>
+    <lastmod>2023-07-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dairongpeng.github.io/blog/tags/privacy/</loc>
-    <lastmod>2023-06-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dairongpeng.github.io/blog/post/20230630-rich-content/</loc>
-    <lastmod>2023-06-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dairongpeng.github.io/blog/tags/shortcodes/</loc>
-    <lastmod>2023-06-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dairongpeng.github.io/blog/tags/</loc>
-    <lastmod>2023-06-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dairongpeng.github.io/blog/tags/markdown/</loc>
-    <lastmod>2023-06-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dairongpeng.github.io/blog/tags/text/</loc>
-    <lastmod>2023-06-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dairongpeng.github.io/blog/categories/</loc>
+    <loc>https://dairongpeng.github.io/blog/post/golang%E6%A0%87%E5%87%86%E5%BA%93time/</loc>
     <lastmod>2023-06-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dairongpeng.github.io/blog/tags/css/</loc>
-    <lastmod>2023-06-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dairongpeng.github.io/blog/tags/html/</loc>
-    <lastmod>2023-06-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dairongpeng.github.io/blog/post/20230605-markdown-syntax/</loc>
-    <lastmod>2023-06-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dairongpeng.github.io/blog/series/</loc>
-    <lastmod>2023-06-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dairongpeng.github.io/blog/categories/syntax/</loc>
-    <lastmod>2023-06-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dairongpeng.github.io/blog/categories/themes/</loc>
-    <lastmod>2023-06-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dairongpeng.github.io/blog/series/themes-guide/</loc>
-    <lastmod>2023-06-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dairongpeng.github.io/blog/tags/emoji/</loc>
-    <lastmod>2023-06-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dairongpeng.github.io/blog/post/20230601-emoji-support/</loc>
-    <lastmod>2023-06-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dairongpeng.github.io/blog/post/20230531-math-typesetting/</loc>
+    <loc>https://dairongpeng.github.io/blog/post/golang%E6%A0%87%E5%87%86%E5%BA%93fmt/</loc>
     <lastmod>2023-05-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dairongpeng.github.io/blog/post/abc/</loc>
+    <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dairongpeng.github.io/blog/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
@@ -71,6 +29,12 @@
     <loc>https://dairongpeng.github.io/blog/contact/</loc>
     <lastmod>2019-02-28T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://dairongpeng.github.io/blog/categories/</loc>
+  </url><url>
     <loc>https://dairongpeng.github.io/blog/tags/index/</loc>
+  </url><url>
+    <loc>https://dairongpeng.github.io/blog/series/</loc>
+  </url><url>
+    <loc>https://dairongpeng.github.io/blog/tags/</loc>
   </url>
 </urlset>
