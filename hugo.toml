@@ -2,8 +2,8 @@ baseURL = "https://dairongpeng.github.io/blog"
 author = "dairongpeng"
 copyright = "Copyright © 2022–2023, dairongpeng; all rights reserved."
 paginate = 1000
-languageCode = "en"
-DefaultContentLanguage = "en"
+languageCode = "zh-ch"
+DefaultContentLanguage = "zh-ch"
 enableInlineShortcodes = true
 # prevent build failures when using Hugo's Instagram shortcode due to deprecated Instagram API.
 # See https://github.com/gohugoio/hugo/issues/7228#issuecomment-714490456
@@ -11,7 +11,7 @@ ignoreErrors = ["error-remote-getjson"]
 
 # ------------------------------
 theme = "paper"
-title = "Dai"
+title = "当我胡说八道"
 
 [params]
   color = 'linen'

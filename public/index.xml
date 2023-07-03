@@ -1,53 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dai</title>
+    <title>当我胡说八道</title>
     <link>https://dairongpeng.github.io/blog/</link>
-    <description>Recent content on Dai</description>
+    <description>Recent content on 当我胡说八道</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>zh-ch</language>
     <copyright>Copyright © 2022–2023, dairongpeng; all rights reserved.</copyright>
-    <lastBuildDate>Sun, 02 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dairongpeng.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dairongpeng.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ABC</title>
-      <link>https://dairongpeng.github.io/blog/post/aaa/</link>
-      <pubDate>Sun, 02 Jul 2023 00:00:00 +0000</pubDate>
+      <title>配置容器开发环境</title>
+      <link>https://dairongpeng.github.io/blog/post/230228-%E9%85%8D%E7%BD%AE%E5%AE%B9%E5%99%A8%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Tue, 28 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://dairongpeng.github.io/blog/post/aaa/</guid>
-      <description>测试日期20230702</description>
-    </item>
-    
-    <item>
-      <title>Golang标准库Time</title>
-      <link>https://dairongpeng.github.io/blog/post/golang%E6%A0%87%E5%87%86%E5%BA%93time/</link>
-      <pubDate>Mon, 05 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://dairongpeng.github.io/blog/post/golang%E6%A0%87%E5%87%86%E5%BA%93time/</guid>
-      <description>测试日期20230605</description>
-    </item>
-    
-    <item>
-      <title>Golang标准库Fmt</title>
-      <link>https://dairongpeng.github.io/blog/post/golang%E6%A0%87%E5%87%86%E5%BA%93fmt/</link>
-      <pubDate>Wed, 31 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://dairongpeng.github.io/blog/post/golang%E6%A0%87%E5%87%86%E5%BA%93fmt/</guid>
-      <description>测试日期20230531</description>
-    </item>
-    
-    <item>
-      <title>ABC</title>
-      <link>https://dairongpeng.github.io/blog/post/abc/</link>
-      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://dairongpeng.github.io/blog/post/abc/</guid>
-      <description>测试日期20230401</description>
+      <guid>https://dairongpeng.github.io/blog/post/230228-%E9%85%8D%E7%BD%AE%E5%AE%B9%E5%99%A8%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
+      <description>背景 日常开发中，如果我们有不同平台的开发环境，需要适应多个平台的特性，增加工作负担。例如我会在家中使用配置较高的PC开发，在公司会使用Mac开发。假如我们能不依赖本地操作系统的平台，快速构建目标开发环境，并且该环境可以轻松的移植，就完美解决了这个问题。
+Docker容器开发环境 Docker容器开发环境是一种远程开发的思路，详细操作步骤Microsoft介绍的很详细。借助 Visual Studio Code 将 Docker 容器用作开发环境 目标环境准备 CentOS Vim Git Golang 准备Dockerfile FROM centos:8 LABEL maintainer=&amp;#34;dairongpeng dairongpeng@foxmail.com&amp;#34; ARG BASE_GOPROXY=direct,https://goproxy.cn,https://goproxy.io ARG HOME=/root ARG WORKSPACE=${HOME}/workspace ENV LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_COLLATE=C LC_CTYPE=en_US.UTF-8 PS1=&amp;#39;[\u@dev \W]\$ &amp;#39; RUN sed -i &amp;#39;s/mirrorlist/#mirrorlist/g&amp;#39; /etc/yum.repos.d/CentOS-* \ &amp;amp;&amp;amp; sed -i &amp;#39;s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g&amp;#39; /etc/yum.repos.d/CentOS-* RUN yum install -y net-tools \ &amp;amp;&amp;amp; yum install -y wget \ &amp;amp;&amp;amp; yum install -y vim # 替换Yum镜像源 RUN mv /etc/yum.repos.d /etc/yum.repos.d.bak &amp;amp;&amp;amp; mkdir /etc/yum.</description>
     </item>
     
     <item>
       <title></title>
       <link>https://dairongpeng.github.io/blog/archives/</link>
-      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://dairongpeng.github.io/blog/archives/</guid>
       <description></description>
@@ -56,18 +30,16 @@
     <item>
       <title>About</title>
       <link>https://dairongpeng.github.io/blog/about/</link>
-      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://dairongpeng.github.io/blog/about/</guid>
-      <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
-Hugo makes use of a variety of open source projects including:
-https://github.com/yuin/goldmark https://github.</description>
+      <description>一位后端开发。</description>
     </item>
     
     <item>
       <title>Contact</title>
       <link>https://dairongpeng.github.io/blog/contact/</link>
-      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://dairongpeng.github.io/blog/contact/</guid>
       <description> github.com/dairongpeng dairongpeng </description>

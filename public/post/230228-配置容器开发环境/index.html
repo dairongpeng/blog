@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready text-sm lg:text-base"
+  style="--bg: #faf6f1"
+  lang="zh-ch"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>配置容器开发环境 - 当我胡说八道</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  <meta name="description" content="背景 日常开发中，如果我们有不同平台的开发环境，需要适应多个平台的特性，增加工作负担。例如我会在家中使用配置较高的PC开发，在公司会使用Mac开发。假如我们能不依赖本地操作系统的平台，快速构建目标开发环境，并且该环境可以轻松的移植，就完美解决了这个问题。
+Docker容器开发环境 Docker容器开发环境是一种远程开发的思路，详细操作步骤Microsoft介绍的很详细。借助 Visual Studio Code 将 Docker 容器用作开发环境 目标环境准备 CentOS Vim Git Golang 准备Dockerfile FROM centos:8 LABEL maintainer=&#34;dairongpeng dairongpeng@foxmail.com&#34; ARG BASE_GOPROXY=direct,https://goproxy.cn,https://goproxy.io ARG HOME=/root ARG WORKSPACE=${HOME}/workspace ENV LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_COLLATE=C LC_CTYPE=en_US.UTF-8 PS1=&#39;[\u@dev \W]\$ &#39; RUN sed -i &#39;s/mirrorlist/#mirrorlist/g&#39; /etc/yum.repos.d/CentOS-* \ &amp;&amp; sed -i &#39;s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g&#39; /etc/yum.repos.d/CentOS-* RUN yum install -y net-tools \ &amp;&amp; yum install -y wget \ &amp;&amp; yum install -y vim # 替换Yum镜像源 RUN mv /etc/yum.repos.d /etc/yum.repos.d.bak &amp;&amp; mkdir /etc/yum." />
+  <meta name="author" content="当我胡说八道" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://dairongpeng.github.io/blog/main.min.css" />
+
+  
+  <script
+    defer
+    src="https://dairongpeng.github.io/blog/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+   
+  <link rel="preload" as="image" href="https://dairongpeng.github.io/blog/theme.png" />
+
+  
+  
+  
+  
+
+  
+  <link rel="preload" as="image" href="https://dairongpeng.github.io/blog/twitter.svg" />
+  
+  <link rel="preload" as="image" href="https://dairongpeng.github.io/blog/github.svg" />
+  
+  <link rel="preload" as="image" href="https://dairongpeng.github.io/blog/instagram.svg" />
+  
+  
+
+  
+  
+
+  
+  <link rel="icon" href="https://dairongpeng.github.io/blog/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://dairongpeng.github.io/blog/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.114.1">
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="配置容器开发环境" />
+<meta property="og:description" content="背景 日常开发中，如果我们有不同平台的开发环境，需要适应多个平台的特性，增加工作负担。例如我会在家中使用配置较高的PC开发，在公司会使用Mac开发。假如我们能不依赖本地操作系统的平台，快速构建目标开发环境，并且该环境可以轻松的移植，就完美解决了这个问题。
+Docker容器开发环境 Docker容器开发环境是一种远程开发的思路，详细操作步骤Microsoft介绍的很详细。借助 Visual Studio Code 将 Docker 容器用作开发环境 目标环境准备 CentOS Vim Git Golang 准备Dockerfile FROM centos:8 LABEL maintainer=&#34;dairongpeng dairongpeng@foxmail.com&#34; ARG BASE_GOPROXY=direct,https://goproxy.cn,https://goproxy.io ARG HOME=/root ARG WORKSPACE=${HOME}/workspace ENV LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_COLLATE=C LC_CTYPE=en_US.UTF-8 PS1=&#39;[\u@dev \W]\$ &#39; RUN sed -i &#39;s/mirrorlist/#mirrorlist/g&#39; /etc/yum.repos.d/CentOS-* \ &amp;&amp; sed -i &#39;s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g&#39; /etc/yum.repos.d/CentOS-* RUN yum install -y net-tools \ &amp;&amp; yum install -y wget \ &amp;&amp; yum install -y vim # 替换Yum镜像源 RUN mv /etc/yum.repos.d /etc/yum.repos.d.bak &amp;&amp; mkdir /etc/yum." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dairongpeng.github.io/blog/post/230228-%E9%85%8D%E7%BD%AE%E5%AE%B9%E5%99%A8%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-02-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-28T00:00:00+00:00" />
+
+  
+  <meta itemprop="name" content="配置容器开发环境">
+<meta itemprop="description" content="背景 日常开发中，如果我们有不同平台的开发环境，需要适应多个平台的特性，增加工作负担。例如我会在家中使用配置较高的PC开发，在公司会使用Mac开发。假如我们能不依赖本地操作系统的平台，快速构建目标开发环境，并且该环境可以轻松的移植，就完美解决了这个问题。
+Docker容器开发环境 Docker容器开发环境是一种远程开发的思路，详细操作步骤Microsoft介绍的很详细。借助 Visual Studio Code 将 Docker 容器用作开发环境 目标环境准备 CentOS Vim Git Golang 准备Dockerfile FROM centos:8 LABEL maintainer=&#34;dairongpeng dairongpeng@foxmail.com&#34; ARG BASE_GOPROXY=direct,https://goproxy.cn,https://goproxy.io ARG HOME=/root ARG WORKSPACE=${HOME}/workspace ENV LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_COLLATE=C LC_CTYPE=en_US.UTF-8 PS1=&#39;[\u@dev \W]\$ &#39; RUN sed -i &#39;s/mirrorlist/#mirrorlist/g&#39; /etc/yum.repos.d/CentOS-* \ &amp;&amp; sed -i &#39;s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g&#39; /etc/yum.repos.d/CentOS-* RUN yum install -y net-tools \ &amp;&amp; yum install -y wget \ &amp;&amp; yum install -y vim # 替换Yum镜像源 RUN mv /etc/yum.repos.d /etc/yum.repos.d.bak &amp;&amp; mkdir /etc/yum."><meta itemprop="datePublished" content="2023-02-28T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-02-28T00:00:00+00:00" />
+<meta itemprop="wordCount" content="526">
+<meta itemprop="keywords" content="" />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="配置容器开发环境"/>
+<meta name="twitter:description" content="背景 日常开发中，如果我们有不同平台的开发环境，需要适应多个平台的特性，增加工作负担。例如我会在家中使用配置较高的PC开发，在公司会使用Mac开发。假如我们能不依赖本地操作系统的平台，快速构建目标开发环境，并且该环境可以轻松的移植，就完美解决了这个问题。
+Docker容器开发环境 Docker容器开发环境是一种远程开发的思路，详细操作步骤Microsoft介绍的很详细。借助 Visual Studio Code 将 Docker 容器用作开发环境 目标环境准备 CentOS Vim Git Golang 准备Dockerfile FROM centos:8 LABEL maintainer=&#34;dairongpeng dairongpeng@foxmail.com&#34; ARG BASE_GOPROXY=direct,https://goproxy.cn,https://goproxy.io ARG HOME=/root ARG WORKSPACE=${HOME}/workspace ENV LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_COLLATE=C LC_CTYPE=en_US.UTF-8 PS1=&#39;[\u@dev \W]\$ &#39; RUN sed -i &#39;s/mirrorlist/#mirrorlist/g&#39; /etc/yum.repos.d/CentOS-* \ &amp;&amp; sed -i &#39;s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g&#39; /etc/yum.repos.d/CentOS-* RUN yum install -y net-tools \ &amp;&amp; yum install -y wget \ &amp;&amp; yum install -y vim # 替换Yum镜像源 RUN mv /etc/yum.repos.d /etc/yum.repos.d.bak &amp;&amp; mkdir /etc/yum."/>
+
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="https://dairongpeng.github.io/blog"
+      >当我胡说八道</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf6f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/blog/about/"
+        >About</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/blog/contact/"
+        >Contact</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./twitter.svg)"
+        href="https://twitter.com/rongpx95"
+        target="_blank"
+        rel="me"
+      >
+        twitter
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/dairongpeng"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./instagram.svg)"
+        href="https://instagram.com/rongpx95"
+        target="_blank"
+        rel="me"
+      >
+        instagram
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pb-24 pt-16 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-20">
+    <h1 class="!my-0 pb-2.5">配置容器开发环境</h1>
+
+    
+    <div class="text-sm opacity-60">
+      
+      <time>Feb 28, 2023</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><h2 id="背景">背景</h2>
+<p>日常开发中，如果我们有不同平台的开发环境，需要适应多个平台的特性，增加工作负担。例如我会在家中使用配置较高的PC开发，在公司会使用Mac开发。假如我们能不依赖本地操作系统的平台，快速构建目标开发环境，并且该环境可以轻松的移植，就完美解决了这个问题。</p>
+<h2 id="docker容器开发环境">Docker容器开发环境</h2>
+<p>Docker容器开发环境是一种远程开发的思路，详细操作步骤Microsoft介绍的很详细。<a href="https://learn.microsoft.com/zh-cn/training/modules/use-docker-container-dev-env-vs-code/">借助 Visual Studio Code 将 Docker 容器用作开发环境
+</a></p>
+<h2 id="目标环境准备">目标环境准备</h2>
+<ul>
+<li>CentOS</li>
+<li>Vim</li>
+<li>Git</li>
+<li>Golang</li>
+</ul>
+<h2 id="准备dockerfile">准备Dockerfile</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> centos:8</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">LABEL</span> maintainer<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dairongpeng dairongpeng@foxmail.com&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ARG</span> BASE_GOPROXY<span style="color:#f92672">=</span>direct,https://goproxy.cn,https://goproxy.io<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ARG</span> HOME<span style="color:#f92672">=</span>/root<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ARG</span> WORKSPACE<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>/workspace<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> LANG<span style="color:#f92672">=</span>en_US.UTF-8 LANGUAGE<span style="color:#f92672">=</span>en_US.UTF-8 LC_COLLATE<span style="color:#f92672">=</span>C LC_CTYPE<span style="color:#f92672">=</span>en_US.UTF-8 PS1<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;[\u@dev \W]\$ &#39;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> sed -i <span style="color:#e6db74">&#39;s/mirrorlist/#mirrorlist/g&#39;</span> /etc/yum.repos.d/CentOS-* <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span><span style="color:#f92672">&amp;&amp;</span> sed -i <span style="color:#e6db74">&#39;s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g&#39;</span> /etc/yum.repos.d/CentOS-*<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> yum install -y net-tools <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> yum install -y wget <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> yum install -y vim<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 替换Yum镜像源</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> mv /etc/yum.repos.d /etc/yum.repos.d.bak <span style="color:#f92672">&amp;&amp;</span> mkdir /etc/yum.repos.d <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span><span style="color:#f92672">&amp;&amp;</span> wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-8.repo <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span><span style="color:#f92672">&amp;&amp;</span> yum clean all <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span><span style="color:#f92672">&amp;&amp;</span> yum makecache<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> yum install dlv -y <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> yum install binutils -y <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> yum install gdb -y <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> yum install git -y <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> git --version<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> git config --global user.name <span style="color:#e6db74">&#34;dairongpeng&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span><span style="color:#f92672">&amp;&amp;</span> git config --global user.email <span style="color:#e6db74">&#34;dairongpeng@foxmail.com&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> wget -P /tmp/ https://golang.google.cn/dl/go1.18.3.linux-amd64.tar.gz <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> mkdir -p <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>/go <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> tar -xvzf /tmp/go1.18.3.linux-amd64.tar.gz -C <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>/go <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> mv <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>/go/go <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>/go/go1.18.3<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> GOVERSION<span style="color:#f92672">=</span>go1.18.3 GO_INSTALL_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>/go<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> GOROOT<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>GO_INSTALL_DIR<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>GOVERSION<span style="color:#e6db74">}</span> GOPATH<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>WORKSPACE<span style="color:#e6db74">}</span>/golang<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> GO111MODULE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;on&#34;</span> CGO_ENABLED<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> GOPROXY<span style="color:#f92672">=</span>https://goproxy.cn,direct GOSUMDB<span style="color:#f92672">=</span>off PATH<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>GOROOT<span style="color:#e6db74">}</span>/bin:<span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span>/bin:<span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>/bin:$PATH<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> echo <span style="color:#e6db74">${</span>PATH<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">${</span>GOVERSION<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">${</span>GO_INSTALL_DIR<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">${</span>GOROOT<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">${</span>GOPATH<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> go version<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> ${WORKSPACE}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><h2 id="验证开发容器">验证开发容器</h2>
+<p>构建镜像：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span> ~/workspace/house/dairongpeng/.devcontainer/ <span style="color:#f92672">[</span>master*<span style="color:#f92672">]</span> docker build -t devcontainer:v1.0.0 .
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Building 9.3s <span style="color:#f92672">(</span>13/13<span style="color:#f92672">)</span> FINISHED
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">[</span>internal<span style="color:#f92672">]</span> load build definition from Dockerfile                                                                                                                                                                                                                       0.0s
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">=</span>&gt; transferring dockerfile: 2.00kB                                                                                                                                                                                                                                     0.0s
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">[</span>internal<span style="color:#f92672">]</span> load .dockerignore                                                                                                                                                                                                                                          0.0s
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">=</span>&gt; transferring context: 2B                                                                                                                                                                                                                                            0.0s
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">[</span>internal<span style="color:#f92672">]</span> load metadata <span style="color:#66d9ef">for</span> docker.io/library/centos:8                                                                                                                                                                                                                0.2s
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">[</span>1/9<span style="color:#f92672">]</span> FROM docker.io/library/centos:8@sha256:a27fd8080b517143cbbbab9dfb7c8571c40d67d534bbdee55bd6c473f432b177                                                                                                                                                          0.0s
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">=</span>&gt; CACHED <span style="color:#f92672">[</span>2/9<span style="color:#f92672">]</span> RUN sed -i <span style="color:#e6db74">&#39;s/mirrorlist/#mirrorlist/g&#39;</span> /etc/yum.repos.d/CentOS-* <span style="color:#f92672">&amp;&amp;</span> sed -i <span style="color:#e6db74">&#39;s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g&#39;</span> /etc/yum.repos.d/CentOS-*                                                                             0.0s
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">=</span>&gt; CACHED <span style="color:#f92672">[</span>3/9<span style="color:#f92672">]</span> RUN yum install -y net-tools     <span style="color:#f92672">&amp;&amp;</span> yum install -y wget     <span style="color:#f92672">&amp;&amp;</span> yum install -y vim                                                                                                                                                                         0.0s
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">=</span>&gt; CACHED <span style="color:#f92672">[</span>4/9<span style="color:#f92672">]</span> RUN mv /etc/yum.repos.d /etc/yum.repos.d.bak <span style="color:#f92672">&amp;&amp;</span> mkdir /etc/yum.repos.d <span style="color:#f92672">&amp;&amp;</span> wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-8.repo <span style="color:#f92672">&amp;&amp;</span> yum clean all <span style="color:#f92672">&amp;&amp;</span> yum makecache                                                       0.0s
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">=</span>&gt; CACHED <span style="color:#f92672">[</span>5/9<span style="color:#f92672">]</span> RUN yum install dlv -y     <span style="color:#f92672">&amp;&amp;</span> yum install binutils -y     <span style="color:#f92672">&amp;&amp;</span> yum install gdb -y     <span style="color:#f92672">&amp;&amp;</span> yum install git -y     <span style="color:#f92672">&amp;&amp;</span> git --version                                                                                                                            0.0s
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">=</span>&gt; CACHED <span style="color:#f92672">[</span>6/9<span style="color:#f92672">]</span> RUN git config --global user.name <span style="color:#e6db74">&#34;dairongpeng&#34;</span> <span style="color:#f92672">&amp;&amp;</span> git config --global user.email <span style="color:#e6db74">&#34;dairongpeng@foxmail.com&#34;</span>                                                                                                                                               0.0s
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">=</span>&gt; CACHED <span style="color:#f92672">[</span>7/9<span style="color:#f92672">]</span> RUN wget -P /tmp/ https://golang.google.cn/dl/go1.18.3.linux-amd64.tar.gz     <span style="color:#f92672">&amp;&amp;</span> mkdir -p /root/go     <span style="color:#f92672">&amp;&amp;</span> tar -xvzf /tmp/go1.18.3.linux-amd64.tar.gz -C /root/go     <span style="color:#f92672">&amp;&amp;</span> mv /root/go/go /root/go/go1.18.3                                                  0.0s
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">=</span>&gt; CACHED <span style="color:#f92672">[</span>8/9<span style="color:#f92672">]</span> RUN echo /root/go/go1.18.3/bin:/root/workspace/golang/bin:/root/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin     <span style="color:#f92672">&amp;&amp;</span> echo go1.18.3     <span style="color:#f92672">&amp;&amp;</span> echo /root/go     <span style="color:#f92672">&amp;&amp;</span> echo /root/go/go1.18.3     <span style="color:#f92672">&amp;&amp;</span> echo /root/workspace/golang     <span style="color:#f92672">&amp;&amp;</span> go ve  0.0s
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">[</span>9/9<span style="color:#f92672">]</span> WORKDIR /root/workspace                                                                                                                                                                                                                                          0.1s
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">=</span>&gt; exporting to image                                                                                                                                                                                                                                                     8.8s
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">=</span>&gt; exporting layers                                                                                                                                                                                                                                                    8.8s
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">=</span>&gt; writing image sha256:5808d02e1aa09ec300529d54a7cc6b62e8af7142abddfc62ef4bfc56bc5dfad5                                                                                                                                                                               0.0s
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">=</span>&gt; <span style="color:#f92672">=</span>&gt; naming to docker.io/library/devcontainer:v1.0.0                                                                                                                                                                                                                     0.0s
+</span></span></code></pre></div><p>启动开发容器：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span> ~/workspace/house/dairongpeng/.devcontainer/ <span style="color:#f92672">[</span>master*<span style="color:#f92672">]</span> docker run -d -it --name devcontainer devcontainer:v1.0.0
+</span></span><span style="display:flex;"><span>c16aa496be22e3a8af08573cb10405acf9faadb9bc97ae3f06bcd4a0da87d3c5
+</span></span><span style="display:flex;"><span> ~/workspace/house/dairongpeng/.devcontainer/ <span style="color:#f92672">[</span>master*<span style="color:#f92672">]</span> docker ps
+</span></span><span style="display:flex;"><span>CONTAINER ID   IMAGE                      COMMAND                  CREATED         STATUS         PORTS     NAMES
+</span></span><span style="display:flex;"><span>c16aa496be22   devcontainer:v1.0.0        <span style="color:#e6db74">&#34;/bin/bash&#34;</span>              <span style="color:#ae81ff">5</span> seconds ago   Up <span style="color:#ae81ff">4</span> seconds             devcontainer
+</span></span><span style="display:flex;"><span>e258facfce89   nginx                      <span style="color:#e6db74">&#34;/docker-entrypoint.…&#34;</span>   <span style="color:#ae81ff">2</span> days ago      Up <span style="color:#ae81ff">2</span> days                my_nginx
+</span></span><span style="display:flex;"><span>88cf7d5efad7   yandex/clickhouse-server   <span style="color:#e6db74">&#34;/entrypoint.sh&#34;</span>         <span style="color:#ae81ff">2</span> days ago      Up <span style="color:#ae81ff">2</span> days                clickhouse-server
+</span></span><span style="display:flex;"><span> ~/workspace/house/dairongpeng/.devcontainer/ <span style="color:#f92672">[</span>master*<span style="color:#f92672">]</span> docker exec -it c16aa496be22 /bin/bash
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@dev workspace<span style="color:#f92672">]</span><span style="color:#75715e"># ls</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@dev workspace<span style="color:#f92672">]</span><span style="color:#75715e"># pwd</span>
+</span></span><span style="display:flex;"><span>/root/workspace
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@dev workspace<span style="color:#f92672">]</span><span style="color:#75715e"># go version</span>
+</span></span><span style="display:flex;"><span>go version go1.18.3 linux/amd64
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@dev workspace<span style="color:#f92672">]</span><span style="color:#75715e"># git --version</span>
+</span></span><span style="display:flex;"><span>git version 2.27.0
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>root@dev workspace<span style="color:#f92672">]</span><span style="color:#75715e">#</span>
+</span></span></code></pre></div><h2 id="准备devcontainerjson">准备devcontainer.json</h2>
+<p>在vscode项目下，安装容器开发的插件，选择基础环境，会自动建立.devcontainer文件夹(参考文档开头的链接)。在该文件夹下，重写devcontainer.json</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;build&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;dockerfile&#34;</span>: <span style="color:#e6db74">&#34;Dockerfile&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>并且拷贝我们之前准备的Dockerfile文件到该文件夹下。结构如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span> ~/workspace/house/dairongpeng/.devcontainer/ <span style="color:#f92672">[</span>master*<span style="color:#f92672">]</span> tree
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>├── Dockerfile
+</span></span><span style="display:flex;"><span>└── devcontainer.json
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span> directories, <span style="color:#ae81ff">2</span> files
+</span></span></code></pre></div><h2 id="在开发容器中打开项目">在开发容器中打开项目</h2>
+<p>利用vscode dev container插件，选择在容器中打开项目（Reopen in Container）, 稍作等待，即可看到我们的项目运行在了我们的开发容器中。此时在vscode中打开terminal，会显示此时的终端环境已经是容器中的环境，可以愉快的跨平台开发了。</p>
+<p><img src="../imgs/vscode-devcontainer.png" alt=""></p>
+</section>
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2023
+    <a class="link" href="https://dairongpeng.github.io/blog">当我胡说八道</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >Theme Paper</a
+  >
+</footer>
+
+  </body>
+</html>
